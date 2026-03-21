@@ -16,7 +16,7 @@ class TopFrame(tk.Frame):
     def _build_input(self):
 
         for i in range(1,11):
-            tk.Label(self, text=f"目標 {i}").grid(row=i, column=0, padx=5)
+            tk.Label(self, text=f"網址 No.{i}").grid(row=i, column=0, padx=5)
             entry = tk.Entry(self, width=45, fg='grey')
             entry.insert(0, "請輸入目標網址...")  # 加這行
             entry.grid(row=i, column=1, padx=5)
