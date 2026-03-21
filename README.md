@@ -16,6 +16,6 @@ For site: www.85po.com
 2.在工具視窗中，把你要的85po影片網址，直接複製貼上到網址框內，
 預設10個目標網址。
 
-<img src="assets/demo.png" width="ㄉ00">
+<img src="assets/demo.png" width="200">
 
 3.設置後，點擊"開始下載"，就能自動抓取了。
