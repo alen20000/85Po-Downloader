@@ -13,6 +13,6 @@ For site: www.85po.com
 用法:
 1.根目錄打開main.py
 2.在小工具中，你要的85po影片網址，一次支持多排。
-![參考畫面](assets/demo.png)
+<img src="assets/demo.png" width="400">
 
 3.點擊"開始下載"
