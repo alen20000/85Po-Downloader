@@ -1,17 +1,17 @@
 
 
-# 85porn_downloader
+# 85po_downloader
 ---
-for site: https://85tube.com/
-自動化下載85porn網站影片資源
+For site: www.85po.com
+小幫手下載85po網站影片資源
 ---
 ### 功能:
-- [x] 批次下載
+- [x] 批次下載，預設10個
 - [x] 自動命名
 
 ---
 用法:
-1.根目錄新建urls.txt
-2.在urls.txt中，放入目標網站影片的url，支持多排。
+1.根目錄打開main.py
+2.在小工具中，你要的85po影片網址，一次支持多排。
 ![參考畫面](assets/demo.png)
-3.執行 `main.py`
+3.點擊"開始下載"
