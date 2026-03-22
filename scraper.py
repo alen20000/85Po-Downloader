@@ -97,8 +97,10 @@ class VideoDownloader:
                     f.write(chunk)
                     self.downloaded += len(chunk)
                     percent = int(self.downloaded / total * 100)
+
                     if self.on_progress:
                         self.on_progress(percent, self.downloaded, total)
+
             except Exception as e:
                 raise Exception (f'下載中斷:{e}')  #這裡raise 給run 的 except 去處理，比較統一 
             

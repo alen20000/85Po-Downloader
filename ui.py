@@ -86,10 +86,13 @@ class BottonFrame(tk.Frame):
         self.progress_label = tk.Label(self, text="等待下載...")
         self.progress_label.pack()
 
-    def _update_progress(self, percent, downloaded ,total):
+    def _update_progress(self, percent, downloaded, total):
+        self.after(0, lambda: self._do_update(percent, downloaded, total))
 
+    def _do_update(self, percent, downloaded, total):
+        
         self.progress['value'] = percent
-        self.progress_label['text']=f"{percent}%  |  {downloaded/1024/1024:.1f}MB / {total/1024/1024:.1f}MB"
+        self.progress_label['text'] = f"{percent}%  |  {downloaded/1024/1024:.1f}MB / {total/1024/1024:.1f}MB"
 
     def _build_Buttom(self):
 
@@ -99,8 +102,7 @@ class BottonFrame(tk.Frame):
 
     def _on_download_click(self):
         '''按鈕被點擊'''
-
-        self.start_bt.config(state='disabled') #鎖定
+        self.start_bt.config(state='disabled')
         threading.Thread(target=self._run_download, daemon=True).start()
 
 
@@ -111,15 +113,13 @@ class BottonFrame(tk.Frame):
 
         if not self.urls:
             print("請輸入網址")
-            self.after(0,lambda:self.start_bt.config(state='normal')) #解綁
             return
         
         for i in self.urls:
             VideoDownloader(i,on_progress=self._update_progress)
             print('下載完成')
         
-        self.after(0,lambda:self.start_bt.config(state='normal')) #解綁
-
+        self.after(0,lambda:self.start_bt.config(state='normal'))
 class App(tk.Tk): #繼承tk.Tk
 
     def __init__(self):
