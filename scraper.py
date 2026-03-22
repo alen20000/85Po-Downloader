@@ -12,8 +12,10 @@ class VideoDownloader:
 
         self.session = requests.Session()
         self.session.headers.update({
-            'user-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36',"Referer":"www.google.com"
-            })
+            'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N)...',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'accept-language': 'zh-TW,zh;q=0.9,en;q=0.8',
+        })
         
         #初始化
         self.url = url
@@ -40,7 +42,7 @@ class VideoDownloader:
 
     def _get_soup(self): 
 
-        time.sleep(random.uniform(2, 4))  #隨機延遲
+        time.sleep(random.uniform(1, 2))  #隨機延遲
         res = self.session.get(self.url,timeout=30)
         
         if not res.ok:
@@ -98,7 +100,7 @@ class VideoDownloader:
             except Exception as e:
                 raise Exception (f'下載中斷:{e}')  #這裡raise 給run 的 except 去處理，比較統一 
             
-            
+
     # def _select_mode(self):
     #     '''轉換CLI 或 UI 模式，預設UI '''
     #     if self.UI_mode:
