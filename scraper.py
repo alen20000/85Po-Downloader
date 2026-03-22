@@ -41,6 +41,10 @@ class VideoDownloader:
 
         time.sleep(random.uniform(2, 4))  #隨機延遲
         res = self.session.get(self.url,timeout=30)
+        
+        if not res.ok:
+            raise Exception
+        
         self.soup = BeautifulSoup(res.text,'html.parser')
 
     def _get_title(self):

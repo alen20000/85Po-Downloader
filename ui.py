@@ -100,6 +100,11 @@ class BottonFrame(tk.Frame):
         
     def _run_download(self):
         self.urls = self.master.top.get_urls()
+
+        if not self.urls:
+            print("請輸入網址")
+            return
+        
         for i in self.urls:
             VideoDownloader(i,on_progress=self._update_progress)
             print('下載完成')
