@@ -11,7 +11,7 @@ class VideoDownloader:
     def __init__(self,url=None,on_progress=None):
 
         self.session = requests.Session()
-        self.session.headers.update=({
+        self.session.headers.update({
             'user-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Mobile Safari/537.36',"Referer":"www.google.com"
             })
         
@@ -62,8 +62,8 @@ class VideoDownloader:
             for item in self.links:
                 if quality in item.get_text(strip=True):
                     self.select_url = item.get('href')
-                    return self.select_url  # 第一個 return，找到就在這停了
-        return  self.links[0].get('href') #沒找到保底
+                    return 
+        self.select_url = self.links[0].get('href')  #沒有就保底
 
     def _start_download(self): 
         '''專職下載，多緒在UI觸發時調用'''
