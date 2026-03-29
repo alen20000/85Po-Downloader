@@ -2,7 +2,7 @@
 
 # Video_downloader
 ---
-For site: www.85po.com
+For site: www.Video.com
 輔助下載85po網站影片資源
 ---
 ### 功能:
