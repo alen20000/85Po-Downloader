@@ -3,7 +3,7 @@
 # Video_downloader
 ---
 For site: www.Video.com
-輔助下載85po網站影片資源
+輔助下載網站影片資源
 ---
 ### 功能:
 - [x] 批次下載，預設10個
