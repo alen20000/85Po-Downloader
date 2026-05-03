@@ -12,7 +12,7 @@ class TopFrame(tk.Frame):
         super().__init__(parent)
         self.pack(fill='x',padx=5,pady=5)
         self._build_input()
-
+        self.clear_btn()
     def _build_input(self):
 
         for i in range(1,11):
@@ -36,13 +36,23 @@ class TopFrame(tk.Frame):
             entry.insert(0, "請輸入目標網址...")  # 空的就恢復提示
             entry.config(fg='grey')
 
-    def get_urls(self):
+    def get_urls(self): #用父類別來呼叫用，回傳一個list，裡面是所有的網址
         urls = []
         for e in self.target_entries:
             url = e.get()
             if url != "請輸入目標網址..." and url !="":
                 urls.append(url)
         return urls
+    
+    def _clear_entries(self):
+        for i in self.target_entries:
+            i.delete(0, tk.END)
+            i.insert(0, "請輸入目標網址...")
+            i.config(fg='grey')
+
+    def clear_btn(self):
+        self.start_bt = ttk.Button(self, text="清除", command= self._clear_entries)
+        self.start_bt.grid(row=1, column=2, rowspan=10, padx=15, pady=5, sticky='ns') 
     
 
 class MiddleFrame(tk.Frame):
